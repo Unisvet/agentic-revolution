@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Tech Day: The Agentic Revolution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #4f46e5, #ec4899, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #4f46e5, #d946ef);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .quiz-option {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+        }
+        .quiz-option:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: #ec4899;
+        }
+        .quiz-option.selected {
+            background-color: #4f46e5;
+            border-color: #4f46e5;
+        }
+        .quiz-option.correct {
+            background-color: #10b981;
+            border-color: #10b981;
+        }
+        .quiz-option.incorrect {
+            background-color: #ef4444;
+            border-color: #ef4444;
+        }
+        /* Timeline styles */
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2.5rem;
+            padding-left: 2.5rem;
+        }
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -11px;
+            top: 4px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #4f46e5, #d946ef);
+            border: 4px solid #0a0a0a;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold">Gemini Tech Day</h1>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#history" class="hover:text-fuchsia-400 transition">History</a>
+                <a href="#models" class="hover:text-fuchsia-400 transition">Models</a>
+                <a href="#fun-facts" class="hover:text-fuchsia-400 transition">Fun Facts</a>
+                <a href="#quiz" class="hover:text-fuchsia-400 transition">Quiz</a>
+                <a href="#toolkit" class="hover:text-fuchsia-400 transition">Toolkit</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="hero" class="py-20 md:py-32 text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-4">The Agentic <span class="gradient-text">Revolution</span></h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-300 mb-8">
+                    Why we need AI Agents and what they can do with Google Gemini.
+                </p>
+                <a href="#history" class="btn-primary text-white font-bold py-3 px-8 rounded-full inline-block">
+                    Explore the Journey
+                </a>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section id="history" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">A Brief History of a <span class="gradient-text">Grand Idea</span></h2>
+                <div class="max-w-3xl mx-auto">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <p class="font-bold text-lg text-fuchsia-400">1956</p>
+                        <h3 class="font-semibold text-xl mt-1">The Dartmouth Conference</h3>
+                        <p class="text-gray-400 mt-2">The term "artificial intelligence" is coined, and the field is formally born with the optimistic premise that machines can simulate any aspect of intelligence.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <p class="font-bold text-lg text-fuchsia-400">2017</p>
+                        <h3 class="font-semibold text-xl mt-1">"Attention Is All You Need"</h3>
+                        <p class="text-gray-400 mt-2">Google researchers publish a paper introducing the Transformer architecture. Its "self-attention mechanism" revolutionizes how models understand context, paving the way for modern LLMs.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <p class="font-bold text-lg text-fuchsia-400">Nov 2022</p>
+                        <h3 class="font-semibold text-xl mt-1">ChatGPT Ignites the AI Boom</h3>
+                        <p class="text-gray-400 mt-2">OpenAI's ChatGPT launches, demonstrating the power of LLMs to a global audience and triggering a "code red" moment at Google, accelerating its public AI initiatives.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <p class="font-bold text-lg text-fuchsia-400">Dec 2023</p>
+                        <h3 class="font-semibold text-xl mt-1">Gemini is Announced</h3>
+                        <p class="text-gray-400 mt-2">Google unveils Gemini, a next-generation model built from the ground up to be natively multimodal, unifying the legendary Brain and DeepMind teams.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Gemini Models Section -->
+        <section id="models" class="py-24 bg-black/20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">The Gemini <span class="gradient-text">Model Family</span></h2>
+                <p class="text-center max-w-2xl mx-auto text-gray-400 mb-12">A family of models for every task, from massive data analysis to on-device efficiency.</p>
+                <div id="models-container" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Models will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Fun Facts Section -->
+        <section id="fun-facts" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Did You <span class="gradient-text">Know?</span></h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="fun-facts-container">
+                    <!-- Fun facts will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="py-24 bg-black/20">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Test Your <span class="gradient-text">Knowledge</span></h2>
+                <div class="card p-8 rounded-2xl">
+                    <div id="quiz-container">
+                        <!-- Quiz content will be injected by JS -->
+                    </div>
+                    <div id="quiz-result" class="hidden text-center">
+                        <h3 class="text-2xl font-bold mb-4">Quiz Complete!</h3>
+                        <p class="text-5xl font-bold mb-2" id="score-text"></p>
+                        <p class="text-gray-400 mb-6" id="score-feedback"></p>
+                        <button id="restart-quiz-btn" class="btn-primary text-white font-bold py-2 px-6 rounded-full">
+                            Try Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Developer Toolkit Section -->
+        <section id="toolkit" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Developer <span class="gradient-text">Toolkit</span></h2>
+                <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Toolkit links will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/40 border-t border-white/10 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>Created for Gemini Tech Day Presentation.</p>
+            <p class="text-sm mt-2">Content based on the research document "The Agentic Revolution".</p>
+        </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Data ---
+    const modelsData = [
+        {
+            name: "Gemini Ultra",
+            description: "The flagship model, representing the largest and most capable version for the most complex tasks.",
+            useCase: "Scientific research, advanced coding, complex multimodal analysis.",
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-4 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>`
+        },
+        {
+            name: "Gemini Pro",
+            description: "The versatile workhorse, striking an optimal balance between top-tier capability and efficient scalability.",
+            useCase: "Content generation, summarization, chatbots, enterprise apps.",
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-4 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 16v-2m8-8h-2M4 12H2m15.364 6.364l-1.414-1.414M6.343 6.343L4.929 4.929m12.728 12.728l-1.414-1.414M6.343 17.657l-1.414 1.414m12.728-12.728L19.071 6.343"/></svg>`
+        },
+        {
+            name: "Gemini Flash",
+            description: "Purpose-built for speed, low latency, and cost-efficiency. Highly optimized for rapid inference.",
+            useCase: "Real-time chatbots, live translation, high-volume agentic workflows.",
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-4 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`
+        },
+        {
+            name: "Gemini Nano",
+            description: "The smallest model, engineered for maximum efficiency to run directly on-device.",
+            useCase: "Mobile apps, on-device summarization, smart replies, offline features.",
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-4 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>`
+        }
+    ];
+
+    const funFactsData = [
+        {
+            title: "The Name 'Gemini'",
+            text: "The name Gemini (Latin for 'twins') symbolizes the unification of Google's two elite AI labs, Brain and DeepMind, and is inspired by NASA's Project Gemini, the crucial step before the Apollo moon landing.",
+            icon: `♊️`
+        },
+        {
+            title: "1 Million Token Context",
+            text: "Gemini 1.5 Pro's 1 million token context window is equivalent to processing ~1,500 pages of text, 1 hour of video, or a codebase with over 30,000 lines, all in a single prompt.",
+            icon: `📚`
+        },
+        {
+            title: "Beating Human Experts",
+            text: "Gemini 1.0 Ultra was the first AI model to outperform human experts on the MMLU (Massive Multitask Language Understanding) benchmark, a test of knowledge across 57 subjects.",
+            icon: `🏆`
+        },
+        {
+            title: "Natively Multimodal",
+            text: "Unlike models that add image or audio capabilities later, Gemini was pre-trained from the start on interwoven text, images, audio, video, and code, allowing it to reason seamlessly across different formats.",
+            icon: `🎨`
+        },
+        {
+            title: "The Transformer's Origin",
+            text: "The revolutionary Transformer architecture, the foundation for nearly all modern LLMs, was invented by a team of researchers at Google in 2017.",
+            icon: `💡`
+        },
+        {
+            title: "The First Chatbot",
+            text: "The first chatbot, ELIZA, was created in 1966. It simulated a psychotherapist and surprised its creator with how easily users believed it to be human.",
+            icon: `💬`
+        }
+    ];
+
+    const quizData = [
+        {
+            question: "What 2017 invention by Google researchers is the foundation for almost all modern LLMs?",
+            options: ["The DeepMind Chip", "The Transformer Architecture", "The LaMDA Protocol", "The PageRank Algorithm"],
+            answer: "The Transformer Architecture"
+        },
+        {
+            question: "What does it mean for Gemini to be 'natively multimodal'?",
+            options: ["It can speak multiple languages", "It was trained on text, images, and audio from the start", "It can run on multiple devices", "It has multiple expert modules"],
+            answer: "It was trained on text, images, and audio from the start"
+        },
+        {
+            question: "Which Gemini model is specifically designed to run efficiently on mobile devices?",
+            options: ["Gemini Ultra", "Gemini Pro", "Gemini Flash", "Gemini Nano"],
+            answer: "Gemini Nano"
+        },
+        {
+            question: "A 1 million token context window is roughly equivalent to how many pages of text?",
+            options: ["150 pages", "500 pages", "1,500 pages", "5,000 pages"],
+            answer: "1,500 pages"
+        },
+        {
+            question: "What is the defining characteristic of an AI Agent compared to a simple bot?",
+            options: ["It can answer questions", "It follows a script", "Agency: It can act autonomously to achieve goals", "It is built by Google"],
+            answer: "Agency: It can act autonomously to achieve goals"
+        }
+    ];
+
+    const toolkitData = [
+        { name: "Gemini API Quickstart", url: "https://ai.google.dev/gemini-api/docs/quickstart" },
+        { name: "Gemini API Cookbook", url: "https://github.com/google-gemini/cookbook" },
+        { name: "LangGraph Documentation", url: "https://docs.langchain.com/oss/python/langgraph/overview" },
+        { name: "CrewAI Documentation", url: "https://docs.crewai.com/" },
+        { name: "Google Cloud Agent Finder", url: "https://cloud.withgoogle.com/agentfinder/" },
+        { name: "Scaling AI agents with Google Cloud", url: "https://cloud.google.com/blog/topics/partners/google-cloud-ai-agent-marketplace" },
+        { name: "Agent Development Kit (ADK)", url: "https://google.github.io/adk-docs/" }
+    ];
+
+    // --- Dynamic Content Injection ---
+
+    function populateModels() {
+        const container = document.getElementById('models-container');
+        modelsData.forEach(model => {
+            const card = document.createElement('div');
+            card.className = 'card p-6 rounded-xl transform hover:-translate-y-2 transition-transform duration-300';
+            card.innerHTML = `
+                ${model.icon}
+                <h3 class="text-xl font-bold mb-2">${model.name}</h3>
+                <p class="text-gray-400 mb-4">${model.description}</p>
+                <p class="text-sm"><strong class="text-fuchsia-400">Use Case:</strong> ${model.useCase}</p>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function populateFunFacts() {
+        const container = document.getElementById('fun-facts-container');
+        funFactsData.forEach(fact => {
+            const card = document.createElement('div');
+            card.className = 'card p-6 rounded-xl flex items-start space-x-4';
+            card.innerHTML = `
+                <div class="text-3xl">${fact.icon}</div>
+                <div>
+                    <h3 class="font-bold text-lg mb-1">${fact.title}</h3>
+                    <p class="text-gray-400 text-sm">${fact.text}</p>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function populateToolkit() {
+        const container = document.getElementById('toolkit');
+        toolkitData.forEach(link => {
+            const item = document.createElement('a');
+            item.href = link.url;
+            item.target = '_blank';
+            item.rel = 'noopener noreferrer';
+            item.className = 'card p-4 rounded-lg flex justify-between items-center hover:border-fuchsia-500 transition-colors';
+            item.innerHTML = `
+                <span class="font-medium">${link.name}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            `;
+            container.appendChild(item);
+        });
+    }
+
+
+    // --- Quiz Logic ---
+    const quizContainer = document.getElementById('quiz-container');
+    const quizResultContainer = document.getElementById('quiz-result');
+    const scoreText = document.getElementById('score-text');
+    const scoreFeedback = document.getElementById('score-feedback');
+    const restartQuizBtn = document.getElementById('restart-quiz-btn');
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let selectedOption = null;
+
+    function startQuiz() {
+        currentQuestionIndex = 0;
+        score = 0;
+        quizResultContainer.classList.add('hidden');
+        quizContainer.classList.remove('hidden');
+        showQuestion();
+    }
+
+    function showQuestion() {
+        quizContainer.innerHTML = '';
+        selectedOption = null;
+        const questionData = quizData[currentQuestionIndex];
+
+        const questionEl = document.createElement('div');
+        questionEl.innerHTML = `
+            <p class="text-sm text-gray-400 mb-2">Question ${currentQuestionIndex + 1} of ${quizData.length}</p>
+            <h3 class="text-xl md:text-2xl font-semibold mb-6">${questionData.question}</h3>
+            <div id="options-container" class="space-y-4"></div>
+            <button id="next-question-btn" class="btn-primary text-white font-bold py-2 px-6 rounded-full mt-8 w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed" disabled>Next</button>
+        `;
+        quizContainer.appendChild(questionEl);
+        
+        const optionsContainer = document.getElementById('options-container');
+        questionData.options.forEach(option => {
+            const optionEl = document.createElement('button');
+            optionEl.className = 'quiz-option p-4 rounded-lg w-full text-left';
+            optionEl.textContent = option;
+            optionEl.onclick = () => selectOption(optionEl, option);
+            optionsContainer.appendChild(optionEl);
+        });
+
+        document.getElementById('next-question-btn').onclick = nextQuestion;
+    }
+
+    function selectOption(optionEl, option) {
+        if (selectedOption) {
+            Array.from(document.querySelectorAll('.quiz-option.selected')).forEach(el => el.classList.remove('selected'));
+        }
+        optionEl.classList.add('selected');
+        selectedOption = option;
+        document.getElementById('next-question-btn').disabled = false;
+    }
+
+    function nextQuestion() {
+        if (!selectedOption) return;
+
+        const questionData = quizData[currentQuestionIndex];
+        const options = document.querySelectorAll('.quiz-option');
+        const selectedEl = document.querySelector('.quiz-option.selected');
+        
+        document.getElementById('next-question-btn').disabled = true;
+        Array.from(options).forEach(el => el.disabled = true);
+
+        if (selectedOption === questionData.answer) {
+            score++;
+            selectedEl.classList.add('correct');
+        } else {
+            selectedEl.classList.add('incorrect');
+            options.forEach(opt => {
+                if (opt.textContent === questionData.answer) {
+                    opt.classList.add('correct');
+                }
+            });
+        }
+        
+        setTimeout(() => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }, 1500);
+    }
+    
+    function showResult() {
+        quizContainer.classList.add('hidden');
+        quizResultContainer.classList.remove('hidden');
+        scoreText.textContent = `${score} / ${quizData.length}`;
+        let feedback = "";
+        const percentage = (score / quizData.length) * 100;
+        if (percentage === 100) {
+            feedback = "Perfect score! You're a Gemini expert!";
+        } else if (percentage >= 75) {
+            feedback = "Great job! You really know your stuff.";
+        } else if (percentage >= 50) {
+            feedback = "Not bad! A good foundation of knowledge.";
+        } else {
+            feedback = "Good effort! There's always more to learn.";
+        }
+        scoreFeedback.textContent = feedback;
+    }
+
+    restartQuizBtn.addEventListener('click', startQuiz);
+
+
+    // --- Smooth Scrolling ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // --- Initializations ---
+    populateModels();
+    populateFunFacts();
+    populateToolkit();
+    startQuiz();
+
+});
+</script>
+</body>
+</html>
